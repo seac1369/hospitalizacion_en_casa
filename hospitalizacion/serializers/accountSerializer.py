@@ -1,4 +1,4 @@
-from hospitalizacion.models.account import Account
+from hospitalizacion.models.roles import Account
 from rest_framework import serializers
 
 
