@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from hospitalizacion.models.usuarios import User
 from hospitalizacion.models.roles import Roles
-from hospitalizacion.serializers.accountSerializer import AccountSerializer
+from hospitalizacion.serializers.rolesSerializer import RolesSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
-    account = AccountSerializer()
+    roles = RolesSerializer()
 
     class Meta:
         model = User

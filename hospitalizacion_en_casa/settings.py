@@ -67,7 +67,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
-# AUTH_USER_MODEL = "hospitalizacion.User"
+AUTH_USER_MODEL = "hospitalizacion.User"
 
 ROOT_URLCONF = "hospitalizacion_en_casa.urls"
 
