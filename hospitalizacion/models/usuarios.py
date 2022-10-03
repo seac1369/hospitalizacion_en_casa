@@ -4,7 +4,6 @@ from django.contrib.auth.models import (
     PermissionsMixin,
     BaseUserManager,
 )
-from .roles import Roles
 from django.contrib.auth.hashers import make_password
 
 
@@ -34,7 +33,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    id_usuario = models.BigAutoField(primary_key=True)
+    id_usuario = models.IntegerField(primary_key=True)
     numero_identificacion = models.CharField(
         "Numero_identificacion", max_length=15, unique=True
     )
@@ -44,9 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     telefono = models.CharField("Telefono", max_length=30)
     correo = models.EmailField("Correo", max_length=100)
     genero = models.CharField("Genero", max_length=30)
-    roles_id_roles = models.ForeignKey(
-        Roles, related_name="Id_rol", on_delete=models.CASCADE
-    )
+    rol = models.CharField("Genero", max_length=30)
 
     def save(self, **kwargs):
         some_salt = "mMUj0DrIK6vgtdIYepkIxN"

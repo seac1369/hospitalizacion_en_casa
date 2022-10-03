@@ -1,2 +1,2 @@
-from .roles import Roles
+from .personal_medico import Personal
 from .usuarios import User
