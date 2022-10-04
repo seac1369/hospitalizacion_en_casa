@@ -1,1 +1,2 @@
-from .userSerializer import userSerializer
+from .personal_medicoSerializer import Personal
+from .userSerializer import UserSerializer
