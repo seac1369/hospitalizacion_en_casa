@@ -5,7 +5,7 @@ from hospitalizacion.serializers.personal_medicoSerializer import PersonalSerial
 
 
 class UserSerializer(serializers.ModelSerializer):
-    account = PersonalSerializer()
+    personal = PersonalSerializer()
 
     class Meta:
         model = User
@@ -29,7 +29,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj):
         usuario = User.objects.get(id=obj.id)
-        # personal = Personal.objects.get(user=obj.id)
+        personal = Personal.objects.get(user=obj.id)
         return {
             "id_usuario": usuario.id_usuario,
             "numero_identificacion": usuario.numero_identificacion,
@@ -40,10 +40,10 @@ class UserSerializer(serializers.ModelSerializer):
             "correo": usuario.correo,
             "genero": usuario.genero,
             "rol": usuario.rol,
-            # "account": {
-            #   "identificacion_funcionario": personal.identificacion_funcionario,
-            #   "especialidad": personal.especialidad,
-            #    "registro": personal.registro,
-            #    "isActive": personal.isActive,
-            # },
+            "personal": {
+                "identificacion_funcionario": personal.identificacion_funcionario,
+                "especialidad": personal.especialidad,
+                "registro": personal.registro,
+                "usuario_id_usuario": personal.usuarios_id_usuario,
+            },
         }
