@@ -1,1 +1,1 @@
-web: gunicorn hospitalizacion_en_casa.wsgi  
+web: gunicorn app:app
