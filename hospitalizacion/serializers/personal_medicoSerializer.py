@@ -9,5 +9,4 @@ class PersonalSerializer(serializers.ModelSerializer):
             "identificacion_funcionario",
             "especialidad",
             "registro",
-            "usuarios_id_usuario",
         ]

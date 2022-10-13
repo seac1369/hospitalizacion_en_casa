@@ -34,16 +34,16 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     id_usuario = models.IntegerField(primary_key=True)
-    numero_identificacion = models.CharField(
-        "Numero_identificacion", max_length=15, unique=True
+    numero_identificacion = models.TextField(
+        "Numero_identificacion", max_length=40, unique=True
     )
-    nombre = models.CharField("Nombre", max_length=30)
-    apellido = models.CharField("Apellido", max_length=30)
-    password = models.CharField("Password", max_length=30)
-    telefono = models.CharField("Telefono", max_length=30)
+    nombre = models.TextField("Nombre", max_length=40)
+    apellido = models.TextField("Apellido", max_length=40)
+    password = models.TextField("Password", max_length=40)
+    telefono = models.TextField("Telefono", max_length=40)
     correo = models.EmailField("Correo", max_length=100)
-    genero = models.CharField("Genero", max_length=30)
-    rol = models.CharField("Genero", max_length=30)
+    genero = models.TextField("Genero", max_length=40)
+    rol = models.TextField("Genero", max_length=40)
 
     def save(self, **kwargs):
         some_salt = "mMUj0DrIK6vgtdIYepkIxN"

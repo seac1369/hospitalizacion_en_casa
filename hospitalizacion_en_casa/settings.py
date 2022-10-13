@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,14 +48,14 @@ INSTALLED_APPS = [
     "hospitalizacion",
 ]
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
     "ALGORITHM": "HS256",
-    "USER_ID_FIELD": "id",
-    "USER_ID_CLAIM": "user_id",
+    "USER_ID_FIELD": "id_usuario",
+    "USER_ID_CLAIM": "user_id_usuario",
 }
 
 MIDDLEWARE = [
@@ -102,10 +103,10 @@ WSGI_APPLICATION = "hospitalizacion_en_casa.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "ddrkk246pesoh0",
-        "USER": "ucqigdlptjgbgp",
-        "PASSWORD": "3337643ed288f927f8e5e30c2971351c5b22c5d26fc0c1d76a6f0d953904b903",
-        "HOST": "ec2-54-159-175-38.compute-1.amazonaws.com",
+        "NAME": "d4csmk941jl9so",
+        "USER": "zqwhczwfatgzke",
+        "PASSWORD": "f7798ba1f04b0ed0421c4530190a78cec4df109a30688dc4107bf56d20b6651d",
+        "HOST": "ec2-34-231-63-30.compute-1.amazonaws.com",
         "PORT": "5432",
     }
 }
@@ -154,6 +155,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Update database configuration with $DATABASE_URL.
 
-import django_heroku
+# import django_heroku
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

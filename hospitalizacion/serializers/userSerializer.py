@@ -19,17 +19,18 @@ class UserSerializer(serializers.ModelSerializer):
             "correo",
             "genero",
             "rol",
+            "personal",
         ]
 
     def create(self, validated_data):
-        accountData = validated_data.pop("account")
+        accountData = validated_data.pop("personal")
         userInstance = User.objects.create(**validated_data)
-        Personal.objects.create(user=userInstance, **accountData)
+        Personal.objects.create(usuarios_id_usuario=userInstance, **accountData)
         return userInstance
 
     def to_representation(self, obj):
-        usuario = User.objects.get(id=obj.id)
-        personal = Personal.objects.get(user=obj.id)
+        usuario = User.objects.get(id_usuario=obj.id_usuario)
+        personal = Personal.objects.get(usuarios_id_usuario=obj.id_usuario)
         return {
             "id_usuario": usuario.id_usuario,
             "numero_identificacion": usuario.numero_identificacion,
